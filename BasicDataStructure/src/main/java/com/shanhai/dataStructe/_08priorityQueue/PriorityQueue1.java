@@ -50,7 +50,7 @@ public class PriorityQueue1<E extends Priority> implements Queue<E> {
     // 返回优先级最高的索引值
     private int selectMax() {
         int max = 0;
-        for (int i = 0; i < size; i++) {
+        for (int i = 1; i < size; i++) {
             if (array[max].priority() < array[i].priority()) {
                 max = i;
             }
