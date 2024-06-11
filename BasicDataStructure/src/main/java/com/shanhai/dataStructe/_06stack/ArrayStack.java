@@ -21,7 +21,9 @@ public class ArrayStack<E> implements Stack<E>, Iterable<E> {
     @Override
     public E pop() {
         if (isEmpty()) return null;
-        return array[--top];
+        E e = array[--top];
+        array[top] = null;
+        return e;
     }
 
     @Override

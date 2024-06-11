@@ -74,7 +74,7 @@ public class BlockingQueue2<E> implements BlockingQueue<E> {
             if (++head == array.length) head = 0;
             c = size.getAndDecrement();
             // b. 队列不空, 但不是从0变化到不空，由此poll线程通知其它poll线程
-            if (c - 1 > 0) {
+            if (c > 1) {
                 headWaits.signal();
             }
         } finally {
