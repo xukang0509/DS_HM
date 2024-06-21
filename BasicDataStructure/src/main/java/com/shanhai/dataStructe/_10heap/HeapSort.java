@@ -1,13 +1,13 @@
 package com.shanhai.dataStructe._10heap;
 
 import java.util.Arrays;
-import java.util.random.RandomGenerator;
+import java.util.Random;
 
 public class HeapSort {
     public static void main(String[] args) {
         int[] array = new int[30];
         for (int i = 0; i < array.length; i++) {
-            array[i] = RandomGenerator.getDefault().nextInt(0, 100);
+            array[i] = new Random().nextInt(1, 100);
         }
         System.out.println("Before sorted: " + Arrays.toString(array));
         heapSort(array);
