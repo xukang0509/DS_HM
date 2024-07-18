@@ -43,11 +43,10 @@ public class RedBlackTree<K, V> {
             root = newNode;
         } else if (compare > 0) {
             parent.right = newNode;
-            newNode.parent = parent;
         } else {
             parent.left = newNode;
-            newNode.parent = parent;
         }
+        newNode.parent = parent;
         fixRedRed(newNode);
     }
 
