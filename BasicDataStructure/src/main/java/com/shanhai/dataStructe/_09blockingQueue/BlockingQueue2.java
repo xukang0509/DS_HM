@@ -14,13 +14,12 @@ import java.util.concurrent.locks.ReentrantLock;
 public class BlockingQueue2<E> implements BlockingQueue<E> {
     private final E[] array;
     private final AtomicInteger size;
+    private final ReentrantLock headLock;
+    private final ReentrantLock tailLock;
+    private final Condition headWaits;
+    private final Condition tailWaits;
     private int head;
     private int tail;
-
-    private ReentrantLock headLock;
-    private ReentrantLock tailLock;
-    private Condition headWaits;
-    private Condition tailWaits;
 
     public BlockingQueue2(int capacity) {
         array = (E[]) new Object[capacity];
